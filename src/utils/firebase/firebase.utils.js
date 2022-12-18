@@ -28,4 +28,21 @@ export const auth = getAuth();
 
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
 
-export const db = getFirestore(firebaseApp);
+export const db = getFirestore();
+
+export const createUserDocumentFromAuth = async (userAuth) => {
+  const userDocRef = doc(db, "users", userAuth.uid);
+  const userSnapshot = await getDoc(userDocRef);
+
+  if (userSnapshot.exists()) {
+    return userDocRef;
+  } else {
+    const { displayName, email } = userAuth;
+    const createdAt = new Date();
+    try {
+      await setDoc(userDocRef, { displayName, email, createdAt });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+};
