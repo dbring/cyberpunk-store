@@ -1,6 +1,5 @@
 import { useState } from "react";
 import {
-  auth,
   createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
   signInWithGooglePopup,
@@ -13,6 +12,7 @@ const defaultFormFields = {
   email: "",
   password: "",
 };
+
 export const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
 
@@ -29,19 +29,15 @@ export const SignInForm = () => {
     e.preventDefault();
 
     try {
-      const response = await signInAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
+      await signInAuthUserWithEmailAndPassword(email, password);
       setFormFields(defaultFormFields);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const logGoogleUser = async () => {
-    const response = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentFromAuth(response.user);
+  const signInWithGoogle = async () => {
+    await signInWithGooglePopup();
   };
 
   return (
@@ -68,7 +64,7 @@ export const SignInForm = () => {
         />
         <div className="buttons-container">
           <Button type="submit">Sign In</Button>
-          <Button buttonType="google" type="button" onClick={logGoogleUser}>
+          <Button buttonType="google" type="button" onClick={signInWithGoogle}>
             Google Sign In
           </Button>
         </div>

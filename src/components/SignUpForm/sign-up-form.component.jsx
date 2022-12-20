@@ -40,7 +40,9 @@ export const SignUpForm = () => {
         password
       );
       user.displayName = displayName;
+
       await createUserDocumentFromAuth(user);
+
       setFormFields(defaultFormFields);
     } catch (error) {
       console.log(error);
