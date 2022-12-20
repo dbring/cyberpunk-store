@@ -3,12 +3,14 @@ import "./cart-item.styles.scss";
 export const CartItem = ({ cartItem }) => {
   const { name, price, imageUrl, quantity } = cartItem;
   return (
-    <div>
-      <h2>{name}</h2>
+    <div className="cart-item-container">
       <img src={imageUrl} alt={name} />
-      <span>
-        {quantity} x ${price}
-      </span>
+      <div className="item-details">
+        <span className="name">{name}</span>
+        <span className="price">
+          {quantity} x ${price}
+        </span>
+      </div>
     </div>
   );
 };
