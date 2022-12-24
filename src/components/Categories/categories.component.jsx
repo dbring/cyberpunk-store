@@ -3,7 +3,7 @@ import JacketsCategoryImage from "../../assets/jackets-category.jpeg";
 import MenCategoryImage from "../../assets/men-category.jpeg";
 import SneakersCategoryImage from "../../assets/sneakers-category.jpeg";
 import WomenCategoryImage from "../../assets/women-category.jpeg";
-import { CategoryItem } from "../CategoryItem/category-item.component";
+import { HomeItem } from "../HomeItem/home-item.component";
 import "./categories.styles.scss";
 
 export const Categories = () => {
@@ -38,7 +38,7 @@ export const Categories = () => {
   return (
     <div className="categories-container">
       {categories.map((category) => (
-        <CategoryItem key={category.id} category={category} />
+        <HomeItem key={category.id} category={category} />
       ))}
     </div>
   );
