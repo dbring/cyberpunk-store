@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../../contexts/cart.context";
+import { CurrencySymbol } from "../CurrencySymbol/currency-symbol";
 import {
   Arrow,
   CheckoutItemContainer,
@@ -28,7 +29,10 @@ export const CheckoutItem = ({ item }) => {
         <Value>{quantity}</Value>
         <Arrow onClick={() => handleAddToCartButtonClick(item)}>&#10095;</Arrow>
       </Quantity>
-      <Price>{price}</Price>
+      <Price>
+        <CurrencySymbol />
+        {price}
+      </Price>
       <RemoveButton onClick={() => removeItemFromCart(item)}>
         &#10005;
       </RemoveButton>

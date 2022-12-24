@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../../contexts/cart.context";
 import { Button, BUTTON_TYPE_CLASSES } from "../Button/button.component";
+import { CurrencySymbol } from "../CurrencySymbol/currency-symbol";
 import {
   Footer,
   Name,
@@ -19,7 +20,10 @@ export const ProductCard = ({ product }) => {
       <img src={imageUrl} alt={name} />
       <Footer>
         <Name>{name}</Name>
-        <Price>${price}</Price>
+        <Price>
+          <CurrencySymbol />
+          {price}
+        </Price>
       </Footer>
       <Button buttonType={BUTTON_TYPE_CLASSES.base} onClick={addToCart}>
         Add to Cart

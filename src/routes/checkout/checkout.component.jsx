@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CheckoutItem } from "../../components/CheckoutItem/checkout-item.component";
+import { CurrencySymbol } from "../../components/CurrencySymbol/currency-symbol";
 import { CartContext } from "../../contexts/cart.context";
 import {
   CheckoutContainer,
@@ -24,7 +25,7 @@ export const Checkout = () => {
           <span>quantity</span>
         </HeaderBlock>
         <HeaderBlock>
-          <span>Price</span>
+          <span>Credits</span>
         </HeaderBlock>
         <HeaderBlock>
           <span>Remove</span>
@@ -35,7 +36,10 @@ export const Checkout = () => {
         <CheckoutItem item={item} key={item.id} />
       ))}
 
-      <Total>Total: ${cartTotal}</Total>
+      <Total>
+        Credits Owing: <CurrencySymbol />
+        {cartTotal}
+      </Total>
     </CheckoutContainer>
   );
 };
