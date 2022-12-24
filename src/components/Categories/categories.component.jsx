@@ -4,42 +4,42 @@ import MenCategoryImage from "../../assets/men-category.jpeg";
 import SneakersCategoryImage from "../../assets/sneakers-category.jpeg";
 import WomenCategoryImage from "../../assets/women-category.jpeg";
 import { HomeItem } from "../HomeItem/home-item.component";
-import "./categories.styles.scss";
+import { CategoriesContainer } from "./categories.styles";
+
+const categories = [
+  {
+    id: 1,
+    title: "hats",
+    imageUrl: HatsCategoryImage,
+  },
+  {
+    id: 2,
+    title: "jackets",
+    imageUrl: JacketsCategoryImage,
+  },
+  {
+    id: 3,
+    title: "sneakers",
+    imageUrl: SneakersCategoryImage,
+  },
+  {
+    id: 4,
+    title: "womens",
+    imageUrl: WomenCategoryImage,
+  },
+  {
+    id: 5,
+    title: "mens",
+    imageUrl: MenCategoryImage,
+  },
+];
 
 export const Categories = () => {
-  const categories = [
-    {
-      id: 1,
-      title: "hats",
-      imageUrl: HatsCategoryImage,
-    },
-    {
-      id: 2,
-      title: "jackets",
-      imageUrl: JacketsCategoryImage,
-    },
-    {
-      id: 3,
-      title: "sneakers",
-      imageUrl: SneakersCategoryImage,
-    },
-    {
-      id: 4,
-      title: "womens",
-      imageUrl: WomenCategoryImage,
-    },
-    {
-      id: 5,
-      title: "mens",
-      imageUrl: MenCategoryImage,
-    },
-  ];
-
   return (
-    <div className="categories-container">
+    <CategoriesContainer>
       {categories.map((category) => (
         <HomeItem key={category.id} category={category} />
       ))}
-    </div>
+    </CategoriesContainer>
   );
 };

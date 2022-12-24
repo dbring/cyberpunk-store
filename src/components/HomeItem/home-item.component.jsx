@@ -1,17 +1,18 @@
-import "./home-item.styles.scss";
+import { useNavigate } from "react-router-dom";
+import { BackgroundImage, Body, HomeItemContainer } from "./home-item.styles";
 
 export const HomeItem = ({ category }) => {
   const { title, imageUrl } = category;
+  const navigate = useNavigate();
+
+  const onNavigateHandler = () => navigate(`shop/${title.toLowerCase()}`);
   return (
-    <div className="home-item-container">
-      <div
-        className="background-image"
-        style={{ backgroundImage: `url(${imageUrl})` }}
-      ></div>
-      <div className="body">
+    <HomeItemContainer onClick={onNavigateHandler}>
+      <BackgroundImage imageUrl={imageUrl} />
+      <Body>
         <h2>{title}</h2>
         <p>Shop Now</p>
-      </div>
-    </div>
+      </Body>
+    </HomeItemContainer>
   );
 };
