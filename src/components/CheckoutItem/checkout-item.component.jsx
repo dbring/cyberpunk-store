@@ -15,12 +15,12 @@ import {
 export const CheckoutItem = ({ item }) => {
   const { handleAddToCartButtonClick, decreaseQuantity, removeItemFromCart } =
     useContext(CartContext);
-  const { name, imageUrl, price, quantity } = item;
+  const { name, src, price, quantity } = item;
 
   return (
     <CheckoutItemContainer>
       <ImageContainer>
-        <img src={imageUrl} alt={name} />
+        <img src={src} alt={name} />
       </ImageContainer>
 
       <Name>{name}</Name>

@@ -6,6 +6,7 @@ import {
 } from "./category-preview.styles";
 
 export const CategoryPreview = ({ title, products }) => {
+  console.log(products);
   return (
     <CategoryPreviewContainer>
       <h2>

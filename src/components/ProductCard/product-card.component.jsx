@@ -10,14 +10,14 @@ import {
 } from "./product-card.styles";
 
 export const ProductCard = ({ product }) => {
-  const { name, imageUrl, price } = product;
+  const { name, src, price } = product;
   const { handleAddToCartButtonClick } = useContext(CartContext);
 
   const addToCart = () => handleAddToCartButtonClick(product);
 
   return (
     <ProductCardContainer>
-      <img src={imageUrl} alt={name} />
+      <img src={src} alt={name} />
       <Footer>
         <Name>{name}</Name>
         <Price>

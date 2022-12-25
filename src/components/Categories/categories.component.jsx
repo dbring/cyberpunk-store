@@ -9,27 +9,27 @@ import { CategoriesContainer } from "./categories.styles";
 const categories = [
   {
     id: 1,
-    title: "hats",
+    title: "punks",
     imageUrl: HatsCategoryImage,
   },
   {
     id: 2,
-    title: "jackets",
+    title: "genesis",
     imageUrl: JacketsCategoryImage,
   },
   {
     id: 3,
-    title: "sneakers",
+    title: "security",
     imageUrl: SneakersCategoryImage,
   },
   {
     id: 4,
-    title: "womens",
+    title: "cityscapes",
     imageUrl: WomenCategoryImage,
   },
   {
     id: 5,
-    title: "mens",
+    title: "androids",
     imageUrl: MenCategoryImage,
   },
 ];
