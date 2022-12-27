@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { ProductCard } from "../../components/ProductCard/product-card.component";
 import { CategoriesContext } from "../../contexts/categories.context";
 import { CategoryContainer, CategoryTitle } from "./category.styles";
@@ -7,6 +7,7 @@ import { CategoryContainer, CategoryTitle } from "./category.styles";
 export const Category = () => {
   const { category } = useParams();
   const { categoriesMap } = useContext(CategoriesContext);
+
   const [products, setProducts] = useState(categoriesMap[category]);
 
   useEffect(() => {

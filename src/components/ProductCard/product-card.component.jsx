@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link, useParams } from "react-router-dom";
 import { CartContext } from "../../contexts/cart.context";
 import { Button, BUTTON_TYPE_CLASSES } from "../Button/button.component";
 import { CurrencySymbol } from "../CurrencySymbol/currency-symbol";
@@ -10,14 +11,18 @@ import {
 } from "./product-card.styles";
 
 export const ProductCard = ({ product }) => {
-  const { name, src, price } = product;
+  const { id, name, src, price, category: productCategory } = product;
   const { handleAddToCartButtonClick } = useContext(CartContext);
+  const { category } = useParams();
 
   const addToCart = () => handleAddToCartButtonClick(product);
 
+  // Need to link image only, and need to fix routing. Routes differently depending on shop/id or category/id => always want category/id. COnditional routing?
   return (
     <ProductCardContainer>
-      <img src={src} alt={name} />
+      <Link to={category ? id : `${productCategory}/${id}`}>
+        <img src={src} alt={name} />
+      </Link>
       <Footer>
         <Name>{name}</Name>
         <Price>

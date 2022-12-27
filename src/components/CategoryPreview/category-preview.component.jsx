@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom";
 import { ProductCard } from "../ProductCard/product-card.component";
 import {
   CategoryPreviewContainer,
   Preview,
   TitleLink,
+  ViewAllLink,
 } from "./category-preview.styles";
 
 export const CategoryPreview = ({ title, products }) => {
-  console.log(products);
   return (
     <CategoryPreviewContainer>
       <h2>
@@ -19,6 +20,9 @@ export const CategoryPreview = ({ title, products }) => {
             <ProductCard key={product.id} product={product} />
           ))}
       </Preview>
+      <h4>
+        <ViewAllLink to={title}>View All {title.toUpperCase()} ❯</ViewAllLink>
+      </h4>
     </CategoryPreviewContainer>
   );
 };

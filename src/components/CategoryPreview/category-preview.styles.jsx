@@ -18,3 +18,8 @@ export const Preview = styled.div`
   grid-template-columns: repeat(4, 1fr);
   column-gap: 20px;
 `;
+
+export const ViewAllLink = styled(Link)`
+  display: block;
+  text-align: right;
+`;

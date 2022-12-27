@@ -8,6 +8,7 @@ export const ProductCardContainer = styled.div`
   align-items: center;
   position: relative;
 
+  a,
   img {
     width: 100%;
     height: 95%;
