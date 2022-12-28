@@ -1,4 +1,5 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useReducer } from "react";
+import { createAction } from "../utils/reducer/reducer.utils";
 
 export const CartContext = createContext({
   isOpen: false,
@@ -9,29 +10,66 @@ export const CartContext = createContext({
   cartTotal: 0,
 });
 
+const CART_ACTION_TYPES = {
+  SET_IS_OPEN: "SET_IS_OPEN",
+  SET_ITEMS_IN_CART: "SET_ITEMS_IN_CART",
+};
+
+const cartReducer = (state, action) => {
+  const { type, payload } = action;
+
+  if (type === CART_ACTION_TYPES.SET_IS_OPEN) {
+    return {
+      ...state,
+      isOpen: payload,
+    };
+  } else if (type === CART_ACTION_TYPES.SET_ITEMS_IN_CART) {
+    return {
+      ...state,
+      ...payload,
+    };
+  }
+
+  throw new Error(`Error: ${type} in cartReducer`);
+};
+
+const INITIAL_STATE = {
+  isOpen: false,
+  itemsInCart: [],
+  cartCount: 0,
+  cartTotal: 0,
+};
+
 export const CartProvider = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [itemsInCart, setItemsInCart] = useState([]);
-  const [cartCount, setCartCount] = useState(0);
-  const [cartTotal, setCartTotal] = useState(0);
+  const [state, dispatch] = useReducer(cartReducer, INITIAL_STATE);
+  const { isOpen, itemsInCart, cartCount, cartTotal } = state;
 
-  useEffect(() => {
-    const numberOfItemsInCart = itemsInCart.reduce(
-      (totalQuantity, item) => totalQuantity + item.quantity,
-      0
-    );
-    setCartCount(numberOfItemsInCart);
-  }, [itemsInCart]);
+  const setIsOpen = () => {
+    const newOpenState = !isOpen;
+    dispatch(createAction(CART_ACTION_TYPES.SET_IS_OPEN, newOpenState));
+  };
 
-  useEffect(() => {
-    const newCartTotal = itemsInCart.reduce(
+  const setItemsInCart = (newCartItems) => {
+    const newCartTotal = newCartItems.reduce(
       (totalPrice, item) => totalPrice + item.quantity * item.price,
       0
     );
-    setCartTotal(newCartTotal);
-  }, [itemsInCart]);
 
-  const toggleCartDropdown = () => setIsOpen(!isOpen);
+    const newCartCount = newCartItems.reduce(
+      (totalQuantity, item) => totalQuantity + item.quantity,
+      0
+    );
+
+    dispatch(
+      createAction(CART_ACTION_TYPES.SET_ITEMS_IN_CART, {
+        itemsInCart: newCartItems,
+        cartTotal: newCartTotal,
+        cartCount: newCartCount,
+      })
+    );
+  };
+
+  const toggleCartDropdown = () => setIsOpen();
 
   const handleAddToCartButtonClick = (product) => {
     const copyOfItemsInCart = [...itemsInCart];
