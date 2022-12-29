@@ -1,10 +1,11 @@
 import { useContext } from "react";
+import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/punklogo2.svg";
 import { CartDropdown } from "../../components/CartDropdown/cart-dropdown.component";
 import { CartIcon } from "../../components/CartIcon/cart-icon.component";
 import { CartContext } from "../../contexts/cart.context";
-import { UserContext } from "../../contexts/user.context";
+import { selectCurrentUser } from "../../store/user/user.selector";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import {
   LogoContainer,
@@ -14,7 +15,7 @@ import {
 } from "./navigation.styles";
 
 export const Navigation = () => {
-  const { currentUser } = useContext(UserContext);
+  const currentUser = useSelector(selectCurrentUser);
   const { isOpen } = useContext(CartContext);
 
   return (

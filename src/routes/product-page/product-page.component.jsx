@@ -1,14 +1,15 @@
 import { useContext, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Button } from "../../components/Button/button.component";
 import { CurrencySymbol } from "../../components/CurrencySymbol/currency-symbol";
 import { CartContext } from "../../contexts/cart.context";
-import { CategoriesContext } from "../../contexts/categories.context";
+import { selectCategoriesMap } from "../../store/categories/categories.selector";
 import "./product-page.styles.scss";
 
 export const ProductPage = () => {
   const { category, id } = useParams();
-  const { categoriesMap } = useContext(CategoriesContext);
+  const categoriesMap = useSelector(selectCategoriesMap);
   const [product, setProduct] = useState({});
   const { handleAddToCartButtonClick } = useContext(CartContext);
 
