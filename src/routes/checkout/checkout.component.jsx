@@ -1,7 +1,11 @@
-import { useContext } from "react";
+import { useSelector } from "react-redux";
 import { CheckoutItem } from "../../components/CheckoutItem/checkout-item.component";
 import { CurrencySymbol } from "../../components/CurrencySymbol/currency-symbol";
-import { CartContext } from "../../contexts/cart.context";
+
+import {
+  selectCartItems,
+  selectCartTotal,
+} from "../../store/cart/cart.selector";
 import {
   CheckoutContainer,
   CheckoutHeader,
@@ -10,7 +14,8 @@ import {
 } from "./checkout.styles";
 
 export const Checkout = () => {
-  const { itemsInCart, cartTotal } = useContext(CartContext);
+  const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartTotal);
 
   return (
     <CheckoutContainer>
@@ -32,7 +37,7 @@ export const Checkout = () => {
         </HeaderBlock>
       </CheckoutHeader>
 
-      {itemsInCart.map((item) => (
+      {cartItems.map((item) => (
         <CheckoutItem item={item} key={item.id} />
       ))}
 

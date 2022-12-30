@@ -1,6 +1,7 @@
-import { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { CartContext } from "../../contexts/cart.context";
+import { handleAddToCartButtonClick } from "../../store/cart/cart.action";
+import { selectCartItems } from "../../store/cart/cart.selector";
 import { Button, BUTTON_TYPE_CLASSES } from "../Button/button.component";
 import { CurrencySymbol } from "../CurrencySymbol/currency-symbol";
 import {
@@ -11,13 +12,14 @@ import {
 } from "./product-card.styles";
 
 export const ProductCard = ({ product }) => {
+  const dispatch = useDispatch();
   const { id, name, src, price, category: productCategory } = product;
-  const { handleAddToCartButtonClick } = useContext(CartContext);
+  const cartItems = useSelector(selectCartItems);
   const { category } = useParams();
 
-  const addToCart = () => handleAddToCartButtonClick(product);
+  const addToCart = () =>
+    dispatch(handleAddToCartButtonClick(cartItems, product));
 
-  // Need to link image only, and need to fix routing. Routes differently depending on shop/id or category/id => always want category/id. COnditional routing?
   return (
     <ProductCardContainer>
       <Link to={category ? id : `${productCategory}/${id}`}>
