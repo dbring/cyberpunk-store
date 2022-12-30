@@ -1,11 +1,11 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/punklogo2.svg";
 import { CartDropdown } from "../../components/CartDropdown/cart-dropdown.component";
 import { CartIcon } from "../../components/CartIcon/cart-icon.component";
 import { selectIsOpen } from "../../store/cart/cart.selector";
+import { signOutStart } from "../../store/user/user.action";
 import { selectCurrentUser } from "../../store/user/user.selector";
-import { signOutUser } from "../../utils/firebase/firebase.utils";
 import {
   LogoContainer,
   NavigationContainer,
@@ -16,6 +16,9 @@ import {
 export const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
   const isOpen = useSelector(selectIsOpen);
+  const dispatch = useDispatch();
+
+  const signOutUser = () => dispatch(signOutStart());
 
   return (
     <>
