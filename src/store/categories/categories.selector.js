@@ -1,6 +1,12 @@
 import { createSelector } from "reselect";
 
-const CATEGORIES = ["cityscapes", "androids", "genesis", "security", "punks"];
+const CATEGORIES = [
+  "combat models",
+  "work models",
+  "pleasure models",
+  "security models",
+  "prototypes",
+];
 
 const selectCategoryReducer = (state) => state.categories;
 

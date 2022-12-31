@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { CheckoutItem } from "../../components/CheckoutItem/checkout-item.component";
 import { CurrencySymbol } from "../../components/CurrencySymbol/currency-symbol";
+import { PaymentForm } from "../../components/PaymentForm/payment-form.component";
 
 import {
   selectCartItems,
@@ -45,6 +46,7 @@ export const Checkout = () => {
         Credits Owing: <CurrencySymbol />
         {cartTotal}
       </Total>
+      <PaymentForm />
     </CheckoutContainer>
   );
 };

@@ -5,7 +5,7 @@ import {
   selectCategoriesIsLoading,
   selectCategoriesMap,
 } from "../../store/categories/categories.selector";
-import "./categories-preview.styles.scss";
+import { ParagraphPreview } from "./categories-preview.styles";
 
 export const CategoriesPreview = () => {
   const categoriesMap = useSelector(selectCategoriesMap);
@@ -13,6 +13,13 @@ export const CategoriesPreview = () => {
 
   return (
     <>
+      <ParagraphPreview>
+        The Tyrell Corporation focuses on the creation and maintenance of
+        artificial life. These beings are called replicants. A replicant is the
+        way of the future. Not just a robot, but truly a being with intelligence
+        making decisions, replicants can handle day to day tasks so that you may
+        live your life in luxury and splendor.
+      </ParagraphPreview>
       {isLoading ? (
         <Spinner />
       ) : (
