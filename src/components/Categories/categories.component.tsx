@@ -1,3 +1,4 @@
+import { Key } from "react";
 import HatsCategoryImage from "../../assets/hats-category.jpeg";
 import JacketsCategoryImage from "../../assets/jackets-category.jpeg";
 import MenCategoryImage from "../../assets/men-category.jpeg";
@@ -6,7 +7,13 @@ import WomenCategoryImage from "../../assets/women-category.jpeg";
 import { HomeItem } from "../HomeItem/home-item.component";
 import { CategoriesContainer } from "./categories.styles";
 
-const categories = [
+export type HomeCategory = {
+  id: Key;
+  title: string;
+  imageUrl: string;
+};
+
+const categories: HomeCategory[] = [
   {
     id: 1,
     title: "Combat Models",

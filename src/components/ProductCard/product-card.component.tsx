@@ -1,3 +1,4 @@
+import { FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { handleAddToCartButtonClick } from "../../store/cart/cart.action";
@@ -12,7 +13,11 @@ import {
   ProductCardContainer,
 } from "./product-card.styles";
 
-export const ProductCard = ({ product }: { product: Category }) => {
+type ProductCardProps = {
+  product: Category;
+};
+
+export const ProductCard: FC<ProductCardProps> = ({ product }) => {
   const dispatch = useDispatch();
   const { id, name, src, price, category: productCategory } = product;
   const cartItems = useSelector(selectCartItems);

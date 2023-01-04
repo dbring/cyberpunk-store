@@ -1,15 +1,13 @@
+import { FC, Key } from "react";
 import { useNavigate } from "react-router-dom";
+import { HomeCategory } from "../Categories/categories.component";
 import { BackgroundImage, Body, HomeItemContainer } from "./home-item.styles";
 
 export type HomeItemProps = {
-  category: {
-    id: number;
-    title: string;
-    imageUrl: string;
-  };
+  category: HomeCategory;
 };
 
-export const HomeItem = ({ category }: HomeItemProps) => {
+export const HomeItem: FC<HomeItemProps> = ({ category }) => {
   const { title, imageUrl } = category;
   const navigate = useNavigate();
 
