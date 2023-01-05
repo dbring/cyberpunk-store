@@ -1,12 +1,18 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
+import { Spinner } from "../../components/Spinner/spinner.component";
 import { fetchCategoriesStart } from "../../store/categories/categories.action";
-import { CategoriesPreview } from "../categories-preview/categories-preview.component";
-import { Category } from "../category/category.component";
-import { ProductPage } from "../product-page/product-page.component";
 
-export const Shop = () => {
+const CategoriesPreview = lazy(
+  () => import("../categories-preview/categories-preview.component")
+);
+const Category = lazy(() => import("../category/category.component"));
+const ProductPage = lazy(
+  () => import("../product-page/product-page.component")
+);
+
+const Shop = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -14,10 +20,14 @@ export const Shop = () => {
   }, []);
 
   return (
-    <Routes>
-      <Route index element={<CategoriesPreview />} />
-      <Route path=":category" element={<Category />} />
-      <Route path=":category/:id" element={<ProductPage />} />
-    </Routes>
+    <Suspense fallback={<Spinner />}>
+      <Routes>
+        <Route index element={<CategoriesPreview />} />
+        <Route path=":category" element={<Category />} />
+        <Route path=":category/:id" element={<ProductPage />} />
+      </Routes>
+    </Suspense>
   );
 };
+
+export default Shop;

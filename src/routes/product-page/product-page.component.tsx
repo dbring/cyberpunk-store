@@ -14,7 +14,7 @@ import {
   Row,
 } from "./product-page.styles";
 
-export const ProductPage = () => {
+const ProductPage = () => {
   const dispatch = useDispatch();
   const { category, id } = useParams();
   const categoriesMap = useSelector(selectCategoriesMap);
@@ -58,3 +58,5 @@ export const ProductPage = () => {
     </ProductPageContainer>
   );
 };
+
+export default ProductPage;

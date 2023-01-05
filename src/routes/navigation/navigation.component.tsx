@@ -13,7 +13,7 @@ import {
   NavLinksContainer,
 } from "./navigation.styles";
 
-export const Navigation = () => {
+const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
   const isOpen = useSelector(selectIsOpen);
   const dispatch = useDispatch();
@@ -47,3 +47,5 @@ export const Navigation = () => {
     </>
   );
 };
+
+export default Navigation;

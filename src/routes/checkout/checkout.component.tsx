@@ -14,7 +14,7 @@ import {
   Total,
 } from "./checkout.styles";
 
-export const Checkout = () => {
+const Checkout = () => {
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
 
@@ -50,3 +50,5 @@ export const Checkout = () => {
     </CheckoutContainer>
   );
 };
+
+export default Checkout;

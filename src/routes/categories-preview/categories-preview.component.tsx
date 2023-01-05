@@ -7,7 +7,7 @@ import {
 } from "../../store/categories/categories.selector";
 import { ParagraphPreview } from "./categories-preview.styles";
 
-export const CategoriesPreview = () => {
+const CategoriesPreview = () => {
   const categoriesMap = useSelector(selectCategoriesMap);
   const isLoading = useSelector(selectCategoriesIsLoading);
 
@@ -34,3 +34,5 @@ export const CategoriesPreview = () => {
     </>
   );
 };
+
+export default CategoriesPreview;
