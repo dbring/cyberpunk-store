@@ -4,9 +4,10 @@ import { Link, useParams } from "react-router-dom";
 import { handleAddToCartButtonClick } from "../../store/cart/cart.action";
 import { selectCartItems } from "../../store/cart/cart.selector";
 import { Category } from "../../store/categories/categories.types";
-import { Button, BUTTON_TYPE_CLASSES } from "../Button/button.component";
+import { BUTTON_TYPE_CLASSES } from "../Button/button.component";
 import { CurrencySymbol } from "../CurrencySymbol/currency-symbol";
 import {
+  AddButton,
   Footer,
   Name,
   Price,
@@ -38,9 +39,9 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
           {price}
         </Price>
       </Footer>
-      <Button buttonType={BUTTON_TYPE_CLASSES.base} onClick={addToCart}>
+      <AddButton buttonType={BUTTON_TYPE_CLASSES.base} onClick={addToCart}>
         Add to Cart
-      </Button>
+      </AddButton>
     </ProductCardContainer>
   );
 };
