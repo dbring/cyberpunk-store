@@ -17,3 +17,9 @@ export const CategoryTitle = styled.h2`
   margin-bottom: 25px;
   text-align: center;
 `;
+
+export const Subtitle = styled.h3`
+  font-size: 28px;
+  margin-bottom: 25px;
+  text-align: center;
+`;

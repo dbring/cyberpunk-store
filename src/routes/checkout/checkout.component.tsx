@@ -20,6 +20,9 @@ const Checkout = () => {
 
   return (
     <CheckoutContainer>
+      <h2>
+        "Invest in a replicant today and see the difference for yourself!"
+      </h2>
       <CheckoutHeader>
         <HeaderBlock>
           <span>Product</span>

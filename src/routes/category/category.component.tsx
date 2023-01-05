@@ -7,7 +7,7 @@ import {
   selectCategoriesIsLoading,
   selectCategoriesMap,
 } from "../../store/categories/categories.selector";
-import { CategoryContainer, CategoryTitle } from "./category.styles";
+import { CategoryContainer, CategoryTitle, Subtitle } from "./category.styles";
 
 type CategoryRouteParams = {
   category: string;
@@ -28,6 +28,7 @@ const Category = () => {
   return (
     <>
       <CategoryTitle>{category.toUpperCase()}</CategoryTitle>
+      <Subtitle>Live your life in luxury and splendor!</Subtitle>
       {isLoading ? (
         <Spinner />
       ) : (

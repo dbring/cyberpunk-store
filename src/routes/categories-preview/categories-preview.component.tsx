@@ -14,11 +14,14 @@ const CategoriesPreview = () => {
   return (
     <>
       <ParagraphPreview>
-        The Tyrell Corporation focuses on the creation and maintenance of
-        artificial life. These beings are called replicants. A replicant is the
-        way of the future. Not just a robot, but truly a being with intelligence
-        making decisions, replicants can handle day to day tasks so that you may
-        live your life in luxury and splendor.
+        The Tyrell Corporation is pleased to introduce our line of replicants.
+        These amazing beings are genetically engineered to be virtually
+        identical to humans, with superior physical and mental abilities. Our
+        replicants are designed to excel in a variety of tasks, making them the
+        perfect choice for any organization looking to increase efficiency and
+        productivity. Whether you need a replicant for manual labor, home
+        security, or anything in between, we have a model that will suit your
+        needs.
       </ParagraphPreview>
       {isLoading ? (
         <Spinner />

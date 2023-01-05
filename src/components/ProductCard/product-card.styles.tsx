@@ -39,13 +39,20 @@ export const ProductCardContainer = styled.div`
   @media screen and (max-width: 800px) {
     width: 40vw;
 
-    &:hover {
-      img {
-        opacity: unset;
-      }
+    button {
+      display: block;
+      opacity: 0.9;
+      min-width: unset;
+      padding: 0 10px;
 
-      button {
-        opacity: unset;
+      &:hover {
+        img {
+          opacity: unset;
+        }
+
+        button {
+          opacity: unset;
+        }
       }
     }
   }

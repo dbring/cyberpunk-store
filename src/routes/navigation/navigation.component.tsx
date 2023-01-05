@@ -24,7 +24,10 @@ const Navigation = () => {
     <>
       <NavigationContainer>
         <LogoContainer to="/">
-          <Logo className="logo" />
+          <p>
+            TYRELL CORP. <br /> More Human Than Human.
+          </p>
+          {/* <Logo className="logo" /> */}
         </LogoContainer>
 
         <NavLinksContainer>
