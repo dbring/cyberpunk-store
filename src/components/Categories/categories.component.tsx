@@ -13,7 +13,7 @@ export type HomeCategory = {
   imageUrl: string;
 };
 
-const categories: HomeCategory[] = [
+export const categories: HomeCategory[] = [
   {
     id: 1,
     title: "Combat Models",

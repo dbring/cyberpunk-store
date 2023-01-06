@@ -14,14 +14,14 @@ const CategoriesPreview = () => {
   return (
     <>
       <ParagraphPreview>
-        The Tyrell Corporation is pleased to introduce our line of replicants.
-        These amazing beings are genetically engineered to be virtually
-        identical to humans, with superior physical and mental abilities. Our
-        replicants are designed to excel in a variety of tasks, making them the
-        perfect choice for any organization looking to increase efficiency and
-        productivity. Whether you need a replicant for manual labor, home
-        security, or anything in between, we have a model that will suit your
-        needs.
+        <span>/</span> The Tyrell Corporation is pleased to introduce our line
+        of replicants. These amazing beings are genetically engineered to be
+        virtually identical to humans, with superior physical and mental
+        abilities. Our replicants are designed to excel in a variety of tasks,
+        making them the perfect choice for any organization looking to increase
+        efficiency and productivity. Whether you need a replicant for manual
+        labor, home security, or anything in between, we have a model that will
+        suit your needs.
       </ParagraphPreview>
       {isLoading ? (
         <Spinner />

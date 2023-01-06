@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
+import { Footer } from "./components/footer/footer.component";
 import { Spinner } from "./components/Spinner/spinner.component";
 import { GlobalStyle } from "./global.styles";
 import { checkUserSession } from "./store/user/user.action";
@@ -24,7 +25,7 @@ const App = () => {
   }, []);
 
   return (
-    <Suspense fallback={<Spinner />}>
+    <Suspense fallback={<Spinner />} data-testid="app-test-1">
       <GlobalStyle />
       <Routes>
         <Route path="/" element={<Navigation />}>
@@ -35,6 +36,7 @@ const App = () => {
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>
+      <Footer />
     </Suspense>
   );
 };

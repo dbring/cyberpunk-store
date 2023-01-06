@@ -1,5 +1,11 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { ReactComponent as Logo } from "../../assets/tyrell.svg";
+
+export const StyledLogo = styled(Logo)`
+  width: 50px;
+  height: 100%;
+`;
 
 export const NavigationContainer = styled.div`
   height: 70px;
@@ -15,8 +21,11 @@ export const NavigationContainer = styled.div`
   }
 `;
 export const LogoContainer = styled(Link)`
+  display: flex;
+  justify-content: space-between;
   height: 100%;
   padding: 10px 15px;
+  align-items: center;
 
   @media screen and (max-width: 800px) {
     width: 50px;
@@ -25,7 +34,7 @@ export const LogoContainer = styled(Link)`
 `;
 
 export const NavLinksContainer = styled.div`
-  width: 50%;
+  width: 60%;
   height: 100%;
   display: flex;
   align-items: center;

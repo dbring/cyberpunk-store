@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
-import { ReactComponent as Logo } from "../../assets/punklogo2.svg";
 import { CartDropdown } from "../../components/CartDropdown/cart-dropdown.component";
 import { CartIcon } from "../../components/CartIcon/cart-icon.component";
 import { selectIsOpen } from "../../store/cart/cart.selector";
@@ -11,6 +10,7 @@ import {
   NavigationContainer,
   NavLink,
   NavLinksContainer,
+  StyledLogo,
 } from "./navigation.styles";
 
 const Navigation = () => {
@@ -24,10 +24,10 @@ const Navigation = () => {
     <>
       <NavigationContainer>
         <LogoContainer to="/">
+          <StyledLogo className="logo" />
           <p>
             TYRELL CORP. <br /> More Human Than Human.
           </p>
-          {/* <Logo className="logo" /> */}
         </LogoContainer>
 
         <NavLinksContainer>
